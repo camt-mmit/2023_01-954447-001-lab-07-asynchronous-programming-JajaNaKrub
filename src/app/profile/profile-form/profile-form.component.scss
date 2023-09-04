@@ -1,0 +1,28 @@
+.app-cmp-friend-form{
+  display: grid;
+  grid-template-columns: auto auto auto 1fr auto;
+}
+
+input{
+  border: 1px solid black;
+  padding: 7px 12px;
+  transition-duration: 100ms;
+}
+
+input:hover{
+  background-color: black;
+  color: white;
+  transition-duration: 100ms;
+}
+
+textarea{
+  border: 1px solid black;
+  padding: 7px 12px;
+  transition-duration: 100ms;
+}
+
+textarea:hover{
+  background-color: black;
+  color: white;
+  transition-duration: 100ms;
+}

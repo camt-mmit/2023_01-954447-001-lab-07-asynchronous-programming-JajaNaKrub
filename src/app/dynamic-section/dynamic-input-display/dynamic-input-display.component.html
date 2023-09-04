@@ -1,0 +1,10 @@
+<dl *ngIf="data; else noData">
+  <ng-container *ngFor="let item of data; let inputIndex = index">
+    <dt>Input {{ inputIndex + 1 }}</dt>
+    <dd>{{ item.toLocaleString() }}</dd>
+  </ng-container>
+</dl>
+
+<ng-template #noData>
+  <div>No Data</div>
+</ng-template>

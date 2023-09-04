@@ -1,0 +1,58 @@
+<form [formGroup]="formGroup">
+  <div class="app-cmp-data-form">
+    <label for="app-inp-studentId">Student ID</label>
+    <input id="app-inp-studentId" type="text" formControlName="studentId" />
+
+    <label for="app-inp-firstname">Firstname</label>
+    <input id="app-inp-firstname" type="text" formControlName="firstname" />
+
+    <label for="app-inp-lastname">Lastname</label>
+    <input id="app-inp-lastname" type="text" formControlName="lastname" />
+
+    <label for="app-inp-age">Age</label>
+    <input id="app-inp-age" type="number" step="1" formControlName="age" />
+
+    <label for="app-inp-autobiography">Autobiography</label>
+    <textarea
+      id="app-inp-autobiography"
+      formControlName="autobiography"
+      rows="10"
+    >
+    </textarea>
+  </div>
+
+  <fieldset>
+    <legend>
+      Friends <button type="button" (click)="addFriend()">Add</button>
+    </legend>
+
+    <div formArrayName="friends">
+      <ng-container
+        *ngFor="
+          let friend of formGroup.controls['friends'].controls as controls;
+          let i = index
+        "
+      >
+        <button type="button" [disabled]="i === 0" (click)="moveFriend(i, -1)">
+          Up
+        </button>
+        <button
+          type="button"
+          [disabled]="i === controls.length - 1"
+          (click)="moveFriend(i, +1)"
+        >
+          Down
+        </button>
+        <label for="app-inp-friends-{{ i }}">{{ i + 1 }}</label>
+        <input type="text" [formControlName]="i" />
+        <button
+          type="button"
+          [disabled]="controls.length === 1"
+          (click)="removeFriend(i)"
+        >
+          X
+        </button>
+      </ng-container>
+    </div>
+  </fieldset>
+</form>
